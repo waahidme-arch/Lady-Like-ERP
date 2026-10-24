@@ -10,6 +10,7 @@ const crypto=require('crypto');
 const path=require('path');
 const fs=require('fs');
 const app=express();
+app.set('trust proxy', 1);
 const PORT=Number(process.env.PORT||3000);
 const dataDir=path.join(__dirname,'data');fs.mkdirSync(dataDir,{recursive:true});
 const db=new Database(path.join(dataDir,'erp.db'));db.pragma('journal_mode = WAL');db.pragma('foreign_keys = ON');
